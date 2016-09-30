@@ -1,10 +1,7 @@
-.site-header{
-    text-align: center;
-    text-transform:uppercase;
-}
+/* Generic style */
 
-body{
-    background: #e6e6e6;
+html, body{
+    background: url(images/rockywall.png);
 }
 
 img{
@@ -12,82 +9,89 @@ img{
     height: auto;
 }
 
-#nav-arrows a{
-    text-decoration: none;
-    color: black;
+/* Outer layer */
+.site-header{
+    text-align: center;
+    text-transform:uppercase;
 }
 
-.prev{
-    position: absolute;
-    left: 260px;
-    top: 350px;
-    font-size: 2em;
-}
-
-.next{
-    position: absolute;
-    right: 260px;
-    top: 350px;
-    font-size: 2em;
-}
-
-main{
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    flex-direction: column;
-}
-
+/* Sections */
 section{
-    width: 960px;
-    height: 600px;
-    background: white;
+    display: none;
+}
+
+section.current{
+    display: block;
+}
+
+/* General section styles */
+.board{
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+    background: url(images/purty_wood.png);
+    border: 1em white solid;
+    box-shadow: 4px 5px 7px 1px rgba(0,0,0,0.2);
+    position: relative;
 }
 
 .section-header h2{
-    font-family: 'spastic_nerfbagregular';
     font-size: 3rem;
-    text-align: center;
+    text-align: left;
+    padding-left: 0.5em;
+    margin: 0.3em 0;
 }
 
-.timeline ul{
-    display: flex;
-    width: 960px;
-    align-items: center;
-    justify-content:space-around;
-    height: 100px;
-    background: linear-gradient(
-      to bottom,
-      #a52929,
-      #a52929 50%,
-      #6d1c1c 50%,
-      #6d1c1c
-    );
-    background-size: 100% 18px;
-    color: darkgoldenrod;
-    margin-left: 0;
-    padding-left: 0;
-    font-size: 1.5rem;
+.item{
+    background: white;
+    padding: 1%;
+    margin: 1%;
+    width: 35%;
+    position: absolute;
 }
 
-.timeline ul li a{
-    color: darkgoldenrod;
-    text-decoration: none;
+.artist-image{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1em white solid;
+    border-bottom: 3em white solid;
+    transform: rotate(10deg);
+    box-shadow: 4px 5px 7px 1px rgba(0,0,0,0.2);
+    width: 18%;
+    z-index: 2;
+}
+
+.artist-text{
+    right: 18em;
+    z-index: 1;
+}
+
+.genre-image{
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 20%;
+}
+
+.genre-other{
+    bottom: 1em;
+    left: 33.5em;
+    width: 20%;
 }
 
 .playlist{
+    width: 25%;
+    float: left;
+    margin: 0.5%;
+    padding: 0.5%;
+    background: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     background: #2ebd59;
     display: inline-block;
     padding: 1%;
-    transform: rotate(10deg);
-    position: absolute;
-    top: 100px;
-    right: 300px;
-    z-index: 3;
-}
-
-.playlist h3{
-    color: white;
 }
 
 .playlist ul{
@@ -100,47 +104,144 @@ section{
 .playlist ul li{
     background: #222222;
     padding: 0.5em;
+    border-bottom: 1px #2ebd59 dashed;
 }
 
-.genre{
-    background: #333;
-    width: 400px;
-    padding: 1%;
-    color: white;
+.playlist ul li:last-child{
+    border: none;
+}
+
+/*
+.genre, .artist{
+    width: 35%;
+    float:left;
+    margin: 0.5%;
+    background: white;
+    padding: 0.5%;
+}
+
+.genre-image{
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 20%;
+}
+
+.genre-other{
     position: absolute;
-    left: 380px;
-    font-size: 0.8rem;
-    z-index: 2;
-}
-
-.artist a, .genre a{
-    color: white;
-    text-decoration-style: dotted;
-}
-
-.genre-title{
-    text-transform: capitalize;
+    bottom: 0;
+    left: 31em;
+    background: white;
+    margin: 0.5%;
+    padding: 0.5%;
 }
 
 .artist{
-    background: #333;
-    width: 400px;
-    padding: 1%;
-    color: white;
     position: absolute;
-    left: 800px;
-    bottom: 250px;
-    font-size: 0.8rem;
-    z-index: 1;
+    top: 0;
+    left: 31em;
 }
 
-.artist-desc{
-    width: 50%;
-    display: inline;
+.artist img{
+    width: 300px;
+    position: absolute;
+    top: 1em;
+    left: 30em;
+    border: 1em white solid;
+    border-bottom: 3em white solid;
+    transform: rotate(10deg);
+    box-shadow: 4px 5px 7px 1px rgba(0,0,0,0.2);
 }
 
-.artist-image{
-    width: 50%;
-    display: inline;
-    float: right;
+.playlist{
+    width: 18%;
+    float: left;
+    margin: 0.5%;
+    padding: 0.5%;
+    background: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #2ebd59;
+    display: inline-block;
+    padding: 1%;
+}
+
+.playlist ul{
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    color: white;
+}
+
+.playlist ul li{
+    background: #222222;
+    padding: 0.5em;
+    border-bottom: 1px #2ebd59 dashed;
+}
+
+.playlist ul li:last-child{
+    border: none;
+}
+
+/* Fifties */
+#fifties .section-header h2{
+    font-family: 'spastic_nerfbagregular';
+}
+
+#sixties .section-header h2{
+    font-family: 'victor_moscosoregular';
+}
+
+
+#nav-arrows a{
+    text-decoration: none;
+    color: black;
+}
+
+.prev{
+    position: absolute;
+    top: 45vh;
+    left: 5vw;
+    font-size: 2em;
+}
+
+.next{
+    position: absolute;
+    top: 45vh;
+    right: 5vw;
+    font-size: 2em;
+}
+
+.timeline{
+
+}
+
+.timeline ul{
+    color: darkgoldenrod;
+    margin: 0.5em auto;
+    padding-left: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    width: 80vw;
+    height: 10vh;
+    background: linear-gradient(
+      to bottom,
+      #a52929,
+      #a52929 50%,
+      #6d1c1c 50%,
+      #6d1c1c
+    );
+    background-size: 100% 18px;
+}
+
+.timeline ul li{
+
+}
+
+.timeline ul li a{
+    color: darkgoldenrod;
+    text-decoration: none;
 }

@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
     
     $.getJSON("https://api.spotify.com/v1/artists/43ZHCT0cAZBISjO8DG9PnE/", function(data){
@@ -15,4 +16,38 @@ $(document).ready(function(){
         $(".genre-desc").append(data.tag.wiki.summary);
     }); 
     
+});
+
+
+$("section").hide();
+
+$("#fifties").show();
+
+$(".next").on("click", function(){
+    $("#fifties").fadeOut();
+    $("#sixties").fadeIn();
+});
+*/
+$(document).ready(function(){
+    var section = $("section");
+    var firstSlide = $("#intro");
+    var lastSlide = $("#seventies");
+    var prevArrow = $(".prev");
+    var nextArrow = $(".next");
+
+    nextArrow.click(function(e){
+        e.preventDefault();
+        $(".current").removeClass("current").fadeOut().next().fadeIn().addClass("current");
+        if(lastSlide.last()){
+            nextArrow.toggle();
+        }
+    });
+
+    prevArrow.click(function(e){
+        e.preventDefault();
+        $(".current").removeClass("current").fadeOut().prev().fadeIn().addClass("current");
+        if(firstSlide.first()){
+            prevArrow.toggle();
+        }
+    });
 });
