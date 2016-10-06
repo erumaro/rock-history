@@ -30,24 +30,38 @@ $(".next").on("click", function(){
 */
 $(document).ready(function(){
     var section = $("section");
-    var firstSlide = $("#intro");
-    var lastSlide = $("#seventies");
     var prevArrow = $(".prev");
     var nextArrow = $(".next");
+    
+    
+    // Arrow navigation
+    prevArrow.hide();
 
     nextArrow.click(function(e){
         e.preventDefault();
+        prevArrow.show();
         $(".current").removeClass("current").fadeOut().next().fadeIn().addClass("current");
-        if(lastSlide.last()){
-            nextArrow.toggle();
+        if($("#seventies").hasClass("current")){
+            nextArrow.hide();
         }
     });
 
     prevArrow.click(function(e){
         e.preventDefault();
+        nextArrow.show();
         $(".current").removeClass("current").fadeOut().prev().fadeIn().addClass("current");
-        if(firstSlide.first()){
-            prevArrow.toggle();
+        if($("#intro").hasClass("current")){
+            prevArrow.hide();
         }
+    });
+    
+    // NAV list navigation4
+    $(function(){
+        $(".timeline ul li a").click(function(e){
+            e.preventDefault();
+            var $anchor = $(this);
+            $(".current").removeClass("current").fadeOut();
+            $($anchor.attr("href")).fadeIn().addClass("current");
+        })
     });
 });
